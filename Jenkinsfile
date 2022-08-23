@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    tools { go 'go-1.19' }
+
     environment {
         COMMIT = "${env.COMMIT_ID}"
         BRANCH = "${env.BRANCH_NAME}"
@@ -26,4 +28,14 @@ pipeline {
             }
         }
     }
+
+
+    post {
+        success {
+            publishHTML([
+                reportDir: 'src',
+                reportFiles: 'index.html',
+                reportName: 'Dynamic HTML generator'])
+    }
+
 }

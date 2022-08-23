@@ -35,7 +35,10 @@ pipeline {
             publishHTML([
                 reportDir: 'src',
                 reportFiles: 'index.html',
-                reportName: 'Dynamic HTML generator'])
+                reportName: 'Dynamic HTML generator',
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: false,])
         }
     }
 }

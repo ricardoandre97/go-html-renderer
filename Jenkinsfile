@@ -36,6 +36,8 @@ pipeline {
                 reportDir: 'src',
                 reportFiles: 'index.html',
                 reportName: 'Dynamic HTML generator'])
+        }
     }
-
 }
+
+

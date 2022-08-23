@@ -10,23 +10,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-                    env
-                    cd src
-                    export GOTMPDIR="$JENKINS_HOME/go-cache"
-                    mkdir -p $GOTMPDIR
-                    go build -o generator main.go
-                '''
+                dir('src') {
+                    sh '''
+                        export GOTMPDIR="$JENKINS_HOME/go-cache"
+                        mkdir -p $GOTMPDIR
+                        go build -o generator main.go
+                    '''
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'cd src && go fmt *.go'
+                dir('src') { sh 'go fmt *.go' }
             }
         }
         stage('Generate HTML') {
             steps {
-                sh 'cd src && ./generator'
+                dir('src') { sh './generator' }
             }
         }
     }

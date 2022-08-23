@@ -3,8 +3,8 @@ pipeline {
     tools { go 'go-1.19' }
 
     environment {
-        COMMIT = "${env.COMMIT_ID}"
-        BRANCH = "${env.BRANCH_NAME}"
+        COMMIT = "${env.GIT_COMMIT}"
+        BRANCH = "${env.GIT_BRANCH}"
     }
 
     stages {

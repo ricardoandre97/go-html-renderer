@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'go fmt *.go'
+                sh 'cd src && go fmt *.go'
             }
         }
         stage('Generate HTML') {
             steps {
-                sh './generator'
+                sh 'cd src && ./generator'
             }
         }
     }

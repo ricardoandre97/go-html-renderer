@@ -1,4 +1,4 @@
-pipelineJob('htlm-generator') {
+pipelineJob('html-generator') {
 
     parameters {
         stringParam('DEPLOYED_BY',

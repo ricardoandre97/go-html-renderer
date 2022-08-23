@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                    cd src
                     export GOTMPDIR="$JENKINS_HOME/go-cache"
                     mkdir -p $GOTMPDIR
                     go build -o generator main.go
